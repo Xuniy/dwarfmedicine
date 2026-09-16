@@ -1,0 +1,107 @@
+[gd_scene format=3 uid="uid://b4vk1sp0idk5j"]
+
+[ext_resource type="PackedScene" uid="uid://dnh6uqncnc07d" path="res://Assets/Dwarf Character Dummy/Models/DwarfM@Dummy.fbx" id="1_gmr5d"]
+[ext_resource type="AnimationLibrary" uid="uid://ukcqcq83p1hj" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Idle01.fbx" id="2_67iee"]
+[ext_resource type="AnimationLibrary" uid="uid://cfp05mh5jvw5m" path="res://Assets/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb" id="4_uik22"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uik22"]
+animation = &"DwarfM@Idle01/DwarfM_Idle01"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ngalb"]
+animation = &"UAL1_Standard/Sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xtqsr"]
+xfade_time = 0.1
+break_loop_at_end = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_phyoq"]
+xfade_time = 0.1
+break_loop_at_end = true
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_w5pmr"]
+states/Idle/node = SubResource("AnimationNodeAnimation_uik22")
+states/Idle/position = Vector2(367, 186)
+states/Run/node = SubResource("AnimationNodeAnimation_ngalb")
+states/Run/position = Vector2(587, 197)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_xtqsr"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_phyoq")]
+
+[node name="DwarfM_Dummy" unique_id=892960620 instance=ExtResource("1_gmr5d")]
+
+[node name="GeneralSkeleton" parent="Rig" parent_id_path=PackedInt32Array(1630338293) index="0" unique_id=1229744354]
+bones/1/position = Vector3(0.004101193, 0.6760899, -0.06667941)
+bones/1/rotation = Quaternion(-0.046152774, -0.11588916, -0.00539079, 0.9921747)
+bones/3/rotation = Quaternion(0.0917262, 0.00011248294, 0.00025431308, 0.9957843)
+bones/4/rotation = Quaternion(0.48748112, 0.5266154, 0.5263815, -0.4560275)
+bones/5/rotation = Quaternion(-0.0069755604, 0.8185415, -0.57432073, 0.009837112)
+bones/6/rotation = Quaternion(0.123004995, -0.69467515, 0.122343, 0.6980892)
+bones/7/rotation = Quaternion(0.11753747, 0.70175403, 0.117251664, 0.69280463)
+bones/8/rotation = Quaternion(0.6295968, -1.1175871e-08, -4.4703484e-06, 0.77692205)
+bones/9/rotation = Quaternion(0.62334186, -1.5646218e-07, -4.380941e-06, 0.7819494)
+bones/10/rotation = Quaternion(0.62334144, 2.9802322e-08, -4.61936e-06, 0.78194976)
+bones/11/rotation = Quaternion(0.6288947, -0.029734856, -4.380941e-06, 0.7769217)
+bones/12/rotation = Quaternion(0.62273234, -0.02755472, -4.4703484e-06, 0.7819496)
+bones/13/rotation = Quaternion(0.62266845, -0.02896142, -4.470349e-06, 0.78194964)
+bones/14/rotation = Quaternion(0.62919796, -0.022413934, -4.1425224e-06, 0.7769218)
+bones/15/rotation = Quaternion(0.62294686, -0.02217639, -4.5299535e-06, 0.7819498)
+bones/16/rotation = Quaternion(0.6228981, -0.023505399, -4.470348e-06, 0.7819499)
+bones/17/rotation = Quaternion(0.6630009, -0.044529773, 0.07369421, 0.74365056)
+bones/18/rotation = Quaternion(0.6203661, -0.062293988, 0.015572846, 0.7816796)
+bones/19/rotation = Quaternion(0.62192166, -0.04205151, -4.4107437e-06, 0.7819496)
+bones/20/rotation = Quaternion(-0.1238195, 0.71952313, 0.20183578, 0.6528534)
+bones/21/rotation = Quaternion(0.18180759, 0.11012465, 0.06006328, 0.97530055)
+bones/22/rotation = Quaternion(0.59942985, 0.2739655, 0.19463256, 0.7264606)
+bones/24/rotation = Quaternion(-0.09172598, -0.0002165478, -0.00026058123, 0.9957842)
+bones/25/rotation = Quaternion(0.07855293, 0.09571718, 0.008007519, 0.99227196)
+bones/40/rotation = Quaternion(0.53972095, -0.47448963, -0.47470158, -0.5081529)
+bones/41/rotation = Quaternion(0.036540747, 0.8152373, -0.57788855, -0.009898059)
+bones/42/rotation = Quaternion(0.21252453, 0.6021516, -0.16790265, 0.75103635)
+bones/43/rotation = Quaternion(0.16034068, -0.7158978, -0.06599917, 0.67633224)
+bones/44/rotation = Quaternion(0.62959695, -1.4156103e-07, 4.3809414e-06, 0.776922)
+bones/45/rotation = Quaternion(0.62334156, 8.568168e-08, 4.3809414e-06, 0.78194976)
+bones/46/rotation = Quaternion(0.6233415, 6.3329935e-08, 4.2915344e-06, 0.78194976)
+bones/47/rotation = Quaternion(0.62889487, 0.029734857, 3.993511e-06, 0.77692163)
+bones/48/rotation = Quaternion(0.62273186, 0.027554717, 4.559755e-06, 0.78194994)
+bones/49/rotation = Quaternion(0.6226685, 0.02896135, 4.2021284e-06, 0.7819496)
+bones/50/rotation = Quaternion(0.62919784, 0.022413896, 4.3213363e-06, 0.7769219)
+bones/51/rotation = Quaternion(0.6229476, 0.022176392, 4.082918e-06, 0.7819493)
+bones/52/rotation = Quaternion(0.6228982, 0.023505453, 4.5895576e-06, 0.7819497)
+bones/53/rotation = Quaternion(0.66300106, 0.04452988, -0.07369429, 0.74365044)
+bones/54/rotation = Quaternion(0.62036574, 0.062294006, -0.015572965, 0.78167987)
+bones/55/rotation = Quaternion(0.62192225, 0.042051412, 4.380942e-06, 0.7819492)
+bones/56/rotation = Quaternion(-0.12381921, -0.7195234, -0.2018356, 0.6528533)
+bones/57/rotation = Quaternion(0.18180706, -0.11012429, -0.0600631, 0.97530067)
+bones/58/rotation = Quaternion(0.5994298, -0.27396542, -0.1946321, 0.72646075)
+bones/66/rotation = Quaternion(-0.0007779924, 0.12230132, 0.98624045, -0.111228)
+bones/67/rotation = Quaternion(0.016350372, 0.98223716, -0.14906633, 0.11279198)
+bones/68/rotation = Quaternion(-0.09454481, 0.7292237, -0.6776835, 0.0062607983)
+bones/69/rotation = Quaternion(4.105099e-08, 1, 5.9604645e-08, 1.2867343e-08)
+bones/70/rotation = Quaternion(0.0008068643, -0.10989777, 0.9872255, 0.1153593)
+bones/71/rotation = Quaternion(-0.028773054, 0.9289529, -0.0808273, -0.36011887)
+bones/72/rotation = Quaternion(0.17156023, 0.64691186, -0.7430104, -0.0027886406)
+bones/73/rotation = Quaternion(3.086953e-11, 1, 2.9802322e-08, 2.7092932e-08)
+
+[node name="DwarfM_BeardMesh01" parent="Rig/GeneralSkeleton" index="0" unique_id=879854748]
+visible = false
+
+[node name="DwarfM_HairMesh02" parent="Rig/GeneralSkeleton" index="1" unique_id=1500957006]
+visible = false
+
+[node name="DwarfM_Cape01" parent="Rig/GeneralSkeleton" index="4" unique_id=1289969313]
+visible = false
+
+[node name="DwarfM_HairMesh01" parent="Rig/GeneralSkeleton" index="7" unique_id=1898273610]
+visible = false
+
+[node name="DwarfM_HairMesh03" parent="Rig/GeneralSkeleton" index="8" unique_id=608503252]
+visible = false
+
+[node name="DwarfM_HairMesh04" parent="Rig/GeneralSkeleton" index="9" unique_id=1818257859]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=1592392526]
+libraries/DwarfM@Idle01 = ExtResource("2_67iee")
+libraries/UAL1_Standard = ExtResource("4_uik22")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=836190199]
+tree_root = SubResource("AnimationNodeStateMachine_w5pmr")
+anim_player = NodePath("../AnimationPlayer")

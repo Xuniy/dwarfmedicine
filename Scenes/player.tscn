@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dste2mym0pmig"]
+
+[ext_resource type="PackedScene" uid="uid://b4vk1sp0idk5j" path="res://Scenes/dwarf_model.tscn" id="1_4flbx"]
+[ext_resource type="Script" uid="uid://dn0enrx8wblpt" path="res://Scenes/player.gd" id="1_cvnsp"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5pmr"]
+height = 1.534668
+
+[node name="player" type="CharacterBody3D" unique_id=845922450]
+script = ExtResource("1_cvnsp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2042051717]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.767334, 0)
+shape = SubResource("CapsuleShape3D_w5pmr")
+
+[node name="DwarfM_Dummy" parent="." unique_id=892960620 instance=ExtResource("1_4flbx")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
