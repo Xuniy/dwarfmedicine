@@ -2,18 +2,33 @@ extends CharacterBody3D
 
 @onready var animation_tree: AnimationTree = $DwarfM_Dummy/AnimationTree
 @onready var animation_state: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
-	
+@onready var camera: Camera3D = $PivotCamera/Camera3D
+@onready var head_mesh: MeshInstance3D = \
+	$DwarfM_Dummy/Rig/GeneralSkeleton/DwarfM_HeadMesh
+@onready var barbe_mesh: MeshInstance3D = \
+	$DwarfM_Dummy/Rig/GeneralSkeleton/DwarfM_BeardMesh01
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 @export var sensis_mouse: float = 0.002
 @onready var camera_pivot: Node3D = $PivotCamera
 
 
-
 func _ready() -> void:
 	animation_tree.active = true
 	animation_state.start("Idle")
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+	var local_player := is_multiplayer_authority()
+
+	camera.current = local_player
+	set_process_unhandled_input(local_player)
+	set_physics_process(local_player)
+
+	# Pour une première personne permanente :
+	head_mesh.visible = not local_player
+	barbe_mesh.visible = not local_player
+
+	if local_player:
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Échap libère le curseur.
@@ -56,9 +71,11 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 		
-	var horizontal_speed = Vector2(velocity.x, velocity.z).length()
-	var target_state = "Run" if horizontal_speed > 0.1 else "Idle"
+	move_and_slide()
+
+func _process(_delta: float) -> void:
+	var speed := Vector2(velocity.x, velocity.z).length()
+	var target_state := "Run" if speed > 0.1 else "Idle"
 
 	if animation_state.get_current_node() != target_state:
 		animation_state.travel(target_state)
-	move_and_slide()

@@ -1,0 +1,133 @@
+[gd_scene format=3 uid="uid://rficnm28yo3h"]
+
+[ext_resource type="PackedScene" uid="uid://b0m83wvm5ujm2" path="res://Assets/Dwarf Character Dummy/Models/DwarfM@Dummy_HeadSeparated.fbx" id="1_w83rj"]
+[ext_resource type="AnimationLibrary" uid="uid://ukcqcq83p1hj" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Idle01.fbx" id="2_yijjv"]
+[ext_resource type="AnimationLibrary" uid="uid://kqt3nr0n3ijl" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Run01_Forward.fbx" id="3_flxl2"]
+[ext_resource type="AnimationLibrary" uid="uid://cfp05mh5jvw5m" path="res://Assets/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb" id="4_ebyq1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yijjv"]
+animation = &"DwarfM@Idle01/DwarfM_Idle01"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_flxl2"]
+animation = &"UAL1_Standard/Sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebyq1"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8iwi6"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8iwi6"]
+states/Idle/node = SubResource("AnimationNodeAnimation_yijjv")
+states/Idle/position = Vector2(427, 142)
+states/Run/node = SubResource("AnimationNodeAnimation_flxl2")
+states/Run/position = Vector2(697, 142)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ebyq1"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8iwi6")]
+
+[node name="DwarfM_Dummy" unique_id=215507243 instance=ExtResource("1_w83rj")]
+
+[node name="GeneralSkeleton" parent="Rig" parent_id_path=PackedInt32Array(187377808) index="0" unique_id=162594229]
+bones/1/position = Vector3(-0.008524, 0.646667, 0.0049600005)
+bones/1/rotation = Quaternion(-0.008233783, 0.0049452055, 0.0002457291, 0.9999539)
+bones/2/rotation = Quaternion(0.061635066, -0.053669788, 0.0022282323, 0.9966523)
+bones/3/rotation = Quaternion(0.050126877, -0.02139784, 0.013055377, 0.99842834)
+bones/4/rotation = Quaternion(0.5193451, 0.4841525, 0.53177863, -0.46161526)
+bones/5/rotation = Quaternion(-0.1383038, 0.8541943, -0.5005512, -0.025934462)
+bones/6/rotation = Quaternion(0.25795472, -0.67276603, 0.25922728, 0.6431536)
+bones/7/rotation = Quaternion(0.010516986, 0.71441364, -0.08859882, 0.69401217)
+bones/8/rotation = Quaternion(0.0275363, 0.0052774097, 0.0010164677, 0.9996064)
+bones/9/rotation = Quaternion(0.20334378, 0.03804223, -0.003764927, 0.97836083)
+bones/10/rotation = Quaternion(0.20419519, 0.03273751, -0.006485313, 0.9783612)
+bones/11/rotation = Quaternion(0.057086147, 0.0060594985, 0.00040116912, 0.99835086)
+bones/12/rotation = Quaternion(0.21512336, 0.028579395, -0.01704186, 0.97601986)
+bones/13/rotation = Quaternion(0.21624379, 0.023443108, -0.008610429, 0.97602)
+bones/14/rotation = Quaternion(0.08907331, 0.0014872553, -0.0005025864, 0.9960239)
+bones/15/rotation = Quaternion(0.22513543, 0.016889349, 0.0011610389, 0.9741804)
+bones/16/rotation = Quaternion(0.22502403, 0.004736796, 0.017722279, 0.9741805)
+bones/17/rotation = Quaternion(0.112894446, -0.0029926002, 0.003421396, 0.9935967)
+bones/18/rotation = Quaternion(0.22462513, 0.004184142, 0.0026325586, 0.97443277)
+bones/19/rotation = Quaternion(0.22414571, 0.007897271, 0.013315973, 0.97443265)
+bones/20/rotation = Quaternion(-0.21150088, 0.7398272, 0.18793845, 0.61041147)
+bones/21/rotation = Quaternion(0.09012213, 0.03076519, 0.004105032, 0.995447)
+bones/22/rotation = Quaternion(0.08997663, 0.031396654, 0.0019403396, 0.99544704)
+bones/24/rotation = Quaternion(0.104314804, 0.12067385, -0.022137085, 0.986948)
+bones/25/rotation = Quaternion(-0.11792632, -0.045795247, -0.0028962465, 0.9919616)
+bones/26/rotation = Quaternion(-0.78129506, 0.0075720786, -0.0054831603, 0.6240918)
+bones/27/rotation = Quaternion(-0.14505228, 0.00022130666, -0.013343454, 0.98933405)
+bones/28/rotation = Quaternion(-0.31910387, -0.0011231538, -0.004109452, 0.9477103)
+bones/29/rotation = Quaternion(-0.23964916, -0.0005866554, -0.004302613, 0.97084993)
+bones/30/rotation = Quaternion(-0.122240774, -0.00030207937, -0.004333886, 0.992491)
+bones/31/rotation = Quaternion(-0.04906372, 8.905755e-05, -0.004346174, 0.9987863)
+bones/32/rotation = Quaternion(1.8397952e-05, 0.7071067, 0.7071068, 1.8008255e-05)
+bones/33/rotation = Quaternion(0.0111864405, 0.88984334, -0.45611882, 0.0030640392)
+bones/34/rotation = Quaternion(0.048692316, -2.0679254e-22, -3.3818152e-21, 0.9988138)
+bones/35/rotation = Quaternion(0.07618213, 5.8067463e-22, 6.7513048e-21, 0.9970939)
+bones/36/rotation = Quaternion(0.060156982, -1.3575756e-20, 1.0247557e-22, 0.998189)
+bones/37/rotation = Quaternion(0.0019268796, 1.3535703e-20, -1.1596253e-21, 0.99999815)
+bones/38/rotation = Quaternion(-0.019413253, -1.35519415e-20, -5.9183138e-24, 0.9998116)
+bones/39/rotation = Quaternion(0.016143288, 1.14413104e-23, 3.7659084e-22, 0.9998697)
+bones/40/rotation = Quaternion(0.5278265, -0.47665936, -0.5220172, -0.47084314)
+bones/41/rotation = Quaternion(0.17096488, 0.8675431, -0.4310074, 0.17992415)
+bones/42/rotation = Quaternion(0.36887863, 0.62391394, -0.36859336, 0.58206433)
+bones/43/rotation = Quaternion(-0.027094623, -0.6741369, 0.18928865, 0.7134249)
+bones/44/rotation = Quaternion(0.027536508, -0.005277231, -0.0010163485, 0.9996064)
+bones/45/rotation = Quaternion(0.20334359, -0.038042188, 0.0037653446, 0.9783609)
+bones/46/rotation = Quaternion(0.20419535, -0.032738205, 0.006484925, 0.97836107)
+bones/47/rotation = Quaternion(0.057086535, -0.006059543, -0.00040116912, 0.99835074)
+bones/48/rotation = Quaternion(0.21512295, -0.028578844, 0.01704189, 0.97602)
+bones/49/rotation = Quaternion(0.21624395, -0.023443166, 0.008610846, 0.97602)
+bones/50/rotation = Quaternion(0.089073285, -0.0014869869, 0.000503093, 0.99602383)
+bones/51/rotation = Quaternion(0.22513515, -0.016889466, -0.0011612176, 0.97418046)
+bones/52/rotation = Quaternion(0.22502445, -0.004736886, -0.017722549, 0.9741804)
+bones/53/rotation = Quaternion(0.11289461, 0.0029929574, -0.0034210975, 0.99359655)
+bones/54/rotation = Quaternion(0.22462519, -0.0041840826, -0.0026331546, 0.97443277)
+bones/55/rotation = Quaternion(0.22414583, -0.007897585, -0.013315408, 0.9744327)
+bones/56/rotation = Quaternion(-0.14012308, -0.628823, -0.22037505, 0.73238117)
+bones/57/rotation = Quaternion(0.10147077, -0.03463996, -0.004622371, 0.9942246)
+bones/58/rotation = Quaternion(0.101307884, -0.035350356, -0.0021843615, 0.99422455)
+bones/59/position = Vector3(0.008298292, 0.1186136, 0.028599802)
+bones/60/rotation = Quaternion(0.9524019, -0.041082278, -0.059119526, -0.29622272)
+bones/61/rotation = Quaternion(-0.28606576, -0.0012479404, -0.002522819, 0.9582059)
+bones/62/rotation = Quaternion(-0.06100262, -0.0004159839, -0.0028158373, 0.99813366)
+bones/63/rotation = Quaternion(-0.0051537, -0.00022952721, -0.002839393, 0.9999827)
+bones/64/rotation = Quaternion(0.015868442, -0.00023876436, -0.0028410242, 0.99987006)
+bones/65/rotation = Quaternion(-0.0013593648, -0.00040119406, -0.0028197137, 0.9999951)
+bones/66/rotation = Quaternion(0.05230655, 0.24297182, 0.96481407, -0.085805714)
+bones/67/rotation = Quaternion(0.0076417224, 0.9521594, -0.30550548, 0.00070551597)
+bones/68/rotation = Quaternion(-0.039509043, 0.669604, -0.74009675, 0.048233427)
+bones/69/rotation = Quaternion(5.859443e-07, 1, -2.0861628e-06, -3.4199726e-07)
+bones/70/rotation = Quaternion(-0.08563671, 0.06738464, 0.9913776, 0.07277502)
+bones/71/rotation = Quaternion(-0.007887742, 0.94937074, -0.3140582, -0.00071408413)
+bones/72/rotation = Quaternion(0.02035216, 0.5222233, -0.84915626, -0.076172404)
+bones/74/position = Vector3(-0.008494001, 0.70690507, 0.01052)
+bones/74/rotation = Quaternion(0.05699658, -0.04869557, 0.002783324, 0.99718225)
+
+[node name="DwarfM_BeardMesh01" parent="Rig/GeneralSkeleton" index="0" unique_id=906898992]
+visible = false
+
+[node name="DwarfM_HairMesh02" parent="Rig/GeneralSkeleton" index="1" unique_id=1746394512]
+visible = false
+
+[node name="DwarfM_BeardMesh02" parent="Rig/GeneralSkeleton" index="2" unique_id=1483495454]
+visible = false
+
+[node name="DwarfM_HairMesh01" parent="Rig/GeneralSkeleton" index="7" unique_id=1041854714]
+visible = false
+
+[node name="DwarfM_HairMesh03" parent="Rig/GeneralSkeleton" index="8" unique_id=1129762591]
+visible = false
+
+[node name="DwarfM_HairMesh04" parent="Rig/GeneralSkeleton" index="9" unique_id=1356313114]
+visible = false
+
+[node name="DwarfM_HeadMesh" parent="Rig/GeneralSkeleton" index="10" unique_id=1236497704]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=548723108]
+libraries/DwarfM@Idle01 = ExtResource("2_yijjv")
+libraries/DwarfM@Run01_Forward = ExtResource("3_flxl2")
+libraries/UAL1_Standard = ExtResource("4_ebyq1")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=43819933]
+tree_root = SubResource("AnimationNodeStateMachine_8iwi6")
+anim_player = NodePath("../AnimationPlayer")

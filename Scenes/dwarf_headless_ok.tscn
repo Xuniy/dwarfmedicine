@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://35xr84j5tc2w"]
+
+[ext_resource type="PackedScene" uid="uid://dbv04ywxc555e" path="res://Assets/Dwarf Character Dummy/Models/DwarfM Character Dummy 1.1 headless.fbx" id="1_yxejb"]
+[ext_resource type="AnimationLibrary" uid="uid://ukcqcq83p1hj" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Idle01.fbx" id="2_tjqf1"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_tjqf1"]
+animation = &"DwarfM@Idle01/DwarfM_Idle01"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_u0ya7"]
+states/Idle/node = SubResource("AnimationNodeAnimation_tjqf1")
+states/Idle/position = Vector2(446, 117)
+
+[node name="DwarfM Character Dummy 1_1 headless" unique_id=1756191565 instance=ExtResource("1_yxejb")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="GeneralSkeleton" parent="Rig" parent_id_path=PackedInt32Array(34374291) index="0" unique_id=783192631]
+bones/7/rotation = Quaternion(0.011197041, 0.8897388, -0.4563223, 0.0030674308)
+bones/8/rotation = Quaternion(0.04869229, 2.4980016e-15, 7.77156e-16, 0.99881387)
+bones/9/rotation = Quaternion(0.07618208, 3.388132e-20, 7.792704e-20, 0.9970939)
+bones/10/rotation = Quaternion(0.06015696, -1.3519283e-20, 9.476255e-22, 0.99818903)
+bones/11/rotation = Quaternion(0.0019269197, 1.35357024e-20, -1.1595937e-21, 0.99999815)
+bones/12/rotation = Quaternion(-0.019413253, -1.3551944e-20, -5.908935e-24, 0.9998116)
+bones/13/rotation = Quaternion(0.016143288, -6.7762636e-21, -8.4703295e-21, 0.9998697)
+bones/15/rotation = Quaternion(-0.7811525, 0.0075711943, -0.0054926225, 0.6242703)
+bones/16/rotation = Quaternion(-0.14505228, 0.00022130428, -0.0133434655, 0.98933405)
+bones/17/rotation = Quaternion(-0.31910384, -0.0011231534, -0.0041094422, 0.9477102)
+bones/18/rotation = Quaternion(-0.23964916, -0.00058665546, -0.0043026134, 0.97084993)
+bones/19/rotation = Quaternion(-0.122240774, -0.00030207937, -0.0043338863, 0.992491)
+bones/20/rotation = Quaternion(-0.049063727, 8.906748e-05, -0.0043461914, 0.9987863)
+bones/104/position = Vector3(0.008298285, 0.11861351, 0.02859978)
+bones/114/rotation = Quaternion(0.95210344, -0.040861618, -0.059250243, -0.29718515)
+bones/115/rotation = Quaternion(-0.28606576, -0.0012479404, -0.0025228192, 0.9582059)
+bones/116/rotation = Quaternion(-0.06100261, -0.00041598396, -0.0028158368, 0.99813366)
+bones/117/rotation = Quaternion(-0.0051537, -0.00022952723, -0.002839393, 0.9999827)
+bones/118/rotation = Quaternion(0.015868437, -0.00023876432, -0.002841024, 0.99987006)
+bones/119/rotation = Quaternion(-0.0013593652, -0.00040119406, -0.0028197134, 0.9999951)
+bones/148/position = Vector3(-0.008454994, 0.64731854, 0.004967997)
+bones/148/rotation = Quaternion(-0.008845244, 0.004945217, 0.00045626497, 0.9999486)
+bones/149/rotation = Quaternion(0.06180455, -0.053683285, 0.0019652986, 0.9966416)
+bones/150/rotation = Quaternion(0.049540073, -0.021444844, 0.012842913, 0.99845934)
+bones/158/rotation = Quaternion(0.5196434, 0.48390675, 0.53094697, -0.46249372)
+bones/160/rotation = Quaternion(0.527626, -0.47683635, -0.52185917, -0.47106355)
+bones/162/rotation = Quaternion(0.10452569, 0.12078515, -0.021787161, 0.9869198)
+bones/163/rotation = Quaternion(-0.117375955, -0.04579839, -0.0028968875, 0.9920268)
+bones/171/rotation = Quaternion(1.8397952e-05, 0.7071067, 0.7071068, 1.8008255e-05)
+bones/200/position = Vector3(-0.008450994, 0.7075635, 0.010454993)
+bones/200/rotation = Quaternion(0.05656648, -0.04869677, 0.0027623205, 0.9972068)
+
+[node name="DwarfM_BeardMesh01" parent="Rig/GeneralSkeleton" index="0" unique_id=101587437]
+visible = false
+
+[node name="DwarfM_BeardMesh02" parent="Rig/GeneralSkeleton" index="1" unique_id=1865547684]
+visible = false
+
+[node name="DwarfM_Cape01" parent="Rig/GeneralSkeleton" index="3" unique_id=1814765591]
+visible = false
+
+[node name="DwarfM_Cape02" parent="Rig/GeneralSkeleton" index="4" unique_id=215435345]
+visible = false
+
+[node name="DwarfM_Cape03" parent="Rig/GeneralSkeleton" index="5" unique_id=436269374]
+visible = false
+
+[node name="DwarfM_HairMesh01" parent="Rig/GeneralSkeleton" index="6" unique_id=1729411127]
+visible = false
+
+[node name="DwarfM_HairMesh02" parent="Rig/GeneralSkeleton" index="7" unique_id=2130118813]
+visible = false
+
+[node name="DwarfM_HairMesh03" parent="Rig/GeneralSkeleton" index="8" unique_id=579336324]
+visible = false
+
+[node name="DwarfM_HairMesh04" parent="Rig/GeneralSkeleton" index="9" unique_id=831836744]
+visible = false
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1514883822]
+libraries/DwarfM@Idle01 = ExtResource("2_tjqf1")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1140937070]
+tree_root = SubResource("AnimationNodeStateMachine_u0ya7")
+anim_player = NodePath("../AnimationPlayer")

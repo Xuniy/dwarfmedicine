@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://b1ftekgxxk8ma"]
 
-[ext_resource type="PackedScene" uid="uid://dste2mym0pmig" path="res://Scenes/player.tscn" id="1_skmq4"]
+[ext_resource type="Script" uid="uid://v8k8ijyd714l" path="res://Scenes/za_warudo.gd" id="1_au00k"]
+[ext_resource type="Script" uid="uid://chksbh1u70spt" path="res://Scenes/boxquitourne.gd" id="2_au00k"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gy3sr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -15,6 +16,7 @@ sky = SubResource("Sky_1lwx6")
 glow_enabled = true
 
 [node name="test_world" type="Node3D" unique_id=661494037]
+script = ExtResource("1_au00k")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=853702497]
 environment = SubResource("Environment_dsnr4")
@@ -28,7 +30,43 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4821472, -0.53224874, -1.4
 use_collision = true
 size = Vector3(11.485168, 1, 12.376953)
 
-[node name="player" parent="." unique_id=845922450 instance=ExtResource("1_skmq4")]
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1433823409]
+spawn_path = NodePath("../Players")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1974943075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6377785, 5.528083)
+[node name="Menu" type="CanvasLayer" parent="." unique_id=1618631118]
+
+[node name="Heberger" type="Button" parent="Menu" unique_id=1003436779]
+offset_left = 138.0
+offset_top = 137.0
+offset_right = 396.0
+offset_bottom = 199.0
+text = "Héberger"
+
+[node name="Rejoindre" type="Button" parent="Menu" unique_id=1217070899]
+offset_left = 654.0
+offset_top = 353.0
+offset_right = 896.0
+offset_bottom = 416.0
+text = "Rejoindre"
+
+[node name="AdresseIP" type="LineEdit" parent="Menu" unique_id=1356967678]
+offset_left = 356.0
+offset_top = 373.0
+offset_right = 610.0
+offset_bottom = 404.0
+
+[node name="Label" type="Label" parent="Menu" unique_id=1117282253]
+offset_left = 355.0
+offset_top = 346.0
+offset_right = 609.0
+offset_bottom = 369.0
+text = "Adresse IP : "
+
+[node name="Players" type="Node3D" parent="." unique_id=24771023]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=513075492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6392943, 0)
+script = ExtResource("2_au00k")
+
+[connection signal="pressed" from="Menu/Heberger" to="." method="_on_heberger_pressed"]
+[connection signal="pressed" from="Menu/Rejoindre" to="." method="_on_rejoindre_pressed"]
