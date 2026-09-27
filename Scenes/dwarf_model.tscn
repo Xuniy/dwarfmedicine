@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dnh6uqncnc07d" path="res://Assets/Dwarf Character Dummy/Models/DwarfM@Dummy.fbx" id="1_gmr5d"]
 [ext_resource type="AnimationLibrary" uid="uid://ukcqcq83p1hj" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Idle01.fbx" id="2_67iee"]
-[ext_resource type="AnimationLibrary" uid="uid://cfp05mh5jvw5m" path="res://Assets/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb" id="4_uik22"]
+[ext_resource type="AnimationLibrary" uid="uid://cfp05mh5jvw5m" path="res://Assets/Animations/UAL1_Standard.glb" id="4_uik22"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uik22"]
 animation = &"DwarfM@Idle01/DwarfM_Idle01"

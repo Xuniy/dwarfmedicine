@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dn0pr1ay0a8mw"
-path="res://.godot/imported/UAL1_Standard_RM.glb-e99469eb35d7c1baf13ad6c9030fe56b.scn"
+uid="uid://ccoc8v341joam"
+path="res://.godot/imported/HumanM@Sprint01_Left [RM].fbx-acebc2821d2996e3be772de021948c0e.scn"
 
 [deps]
 
-source_file="res://Assets/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard_RM.glb"
-dest_files=["res://.godot/imported/UAL1_Standard_RM.glb-e99469eb35d7c1baf13ad6c9030fe56b.scn"]
+source_file="res://Assets/Animations/Movement/Sprint/RootMotion/HumanM@Sprint01_Left [RM].fbx"
+dest_files=["res://.godot/imported/HumanM@Sprint01_Left [RM].fbx-acebc2821d2996e3be772de021948c0e.scn"]
 
 [params]
 
@@ -32,7 +32,7 @@ meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
-animation/trimming=false
+animation/trimming=true
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
@@ -40,6 +40,7 @@ materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-gltf/naming_version=2
-gltf/embedded_image_handling=1
-gltf/texture_map_mode=1
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2

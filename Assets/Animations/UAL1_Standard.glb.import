@@ -4,12 +4,12 @@ importer="animation_library"
 importer_version=1
 type="AnimationLibrary"
 uid="uid://cfp05mh5jvw5m"
-path="res://.godot/imported/UAL1_Standard.glb-c500d243489de769917be8a665a5ec24.res"
+path="res://.godot/imported/UAL1_Standard.glb-e6e1916fb10adcd25e85cac2c271a795.res"
 
 [deps]
 
-source_file="res://Assets/Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard.glb"
-dest_files=["res://.godot/imported/UAL1_Standard.glb-c500d243489de769917be8a665a5ec24.res"]
+source_file="res://Assets/Animations/UAL1_Standard.glb"
+dest_files=["res://.godot/imported/UAL1_Standard.glb-e6e1916fb10adcd25e85cac2c271a795.res"]
 
 [params]
 

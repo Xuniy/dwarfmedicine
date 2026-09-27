@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cw31s3tf16uc4"]
 
-[ext_resource type="Script" uid="uid://dn0enrx8wblpt" path="res://Scenes/player.gd" id="1_cvnsp"]
-[ext_resource type="PackedScene" uid="uid://rficnm28yo3h" path="res://dwarf_model_ok.tscn" id="2_cvnsp"]
+[ext_resource type="Script" uid="uid://dn0enrx8wblpt" path="res://scripts/player.gd" id="1_cvnsp"]
+[ext_resource type="PackedScene" uid="uid://rficnm28yo3h" path="res://Scenes/dwarf_model_ok.tscn" id="2_cvnsp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_w5pmr"]
 height = 1.534668

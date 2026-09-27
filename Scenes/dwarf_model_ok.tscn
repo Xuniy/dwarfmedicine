@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://rficnm28yo3h"]
+
+[ext_resource type="PackedScene" uid="uid://b0m83wvm5ujm2" path="res://Assets/Dwarf Character Dummy/Models/DwarfM@Dummy_HeadSeparated.fbx" id="1_w83rj"]
+[ext_resource type="AnimationLibrary" uid="uid://ukcqcq83p1hj" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Idle01.fbx" id="2_yijjv"]
+[ext_resource type="AnimationLibrary" uid="uid://kqt3nr0n3ijl" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Run01_Forward.fbx" id="3_flxl2"]
+[ext_resource type="AnimationLibrary" uid="uid://cfp05mh5jvw5m" path="res://Assets/Animations/UAL1_Standard.glb" id="4_kj7yh"]
+[ext_resource type="AnimationLibrary" uid="uid://cj447scor7cxx" path="res://Assets/Animations/UAL2_Standard.glb" id="5_fuyny"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yijjv"]
+animation = &"DwarfM@Idle01/DwarfM_Idle01"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_flxl2"]
+animation = &"UAL1_Standard/Sprint"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebyq1"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8iwi6"]
+xfade_time = 0.15
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8iwi6"]
+states/Idle/node = SubResource("AnimationNodeAnimation_yijjv")
+states/Idle/position = Vector2(427, 142)
+states/Run/node = SubResource("AnimationNodeAnimation_flxl2")
+states/Run/position = Vector2(698, 142)
+transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ebyq1"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8iwi6")]
+
+[node name="DwarfM_Dummy" unique_id=215507243 instance=ExtResource("1_w83rj")]
+
+[node name="DwarfM_BeardMesh01" parent="Rig/GeneralSkeleton" parent_id_path=PackedInt32Array(162594229) index="0" unique_id=906898992]
+visible = false
+
+[node name="DwarfM_HairMesh02" parent="Rig/GeneralSkeleton" parent_id_path=PackedInt32Array(162594229) index="1" unique_id=1746394512]
+visible = false
+
+[node name="DwarfM_BeardMesh02" parent="Rig/GeneralSkeleton" parent_id_path=PackedInt32Array(162594229) index="2" unique_id=1483495454]
+visible = false
+
+[node name="DwarfM_HairMesh01" parent="Rig/GeneralSkeleton" parent_id_path=PackedInt32Array(162594229) index="7" unique_id=1041854714]
+visible = false
+
+[node name="DwarfM_HairMesh03" parent="Rig/GeneralSkeleton" parent_id_path=PackedInt32Array(162594229) index="8" unique_id=1129762591]
+visible = false
+
+[node name="DwarfM_HairMesh04" parent="Rig/GeneralSkeleton" parent_id_path=PackedInt32Array(162594229) index="9" unique_id=1356313114]
+visible = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=548723108]
+libraries/DwarfM@Idle01 = ExtResource("2_yijjv")
+libraries/DwarfM@Run01_Forward = ExtResource("3_flxl2")
+libraries/UAL1_Standard = ExtResource("4_kj7yh")
+libraries/UAL2_Standard = ExtResource("5_fuyny")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=43819933]
+tree_root = SubResource("AnimationNodeStateMachine_8iwi6")
+anim_player = NodePath("../AnimationPlayer")
