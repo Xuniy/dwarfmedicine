@@ -2,9 +2,10 @@
 
 [ext_resource type="Script" uid="uid://v8k8ijyd714l" path="res://scripts/za_warudo.gd" id="1_au00k"]
 [ext_resource type="Script" uid="uid://chksbh1u70spt" path="res://scripts/boxquitourne.gd" id="2_au00k"]
-[ext_resource type="PackedScene" path="res://Scenes/items/world_item.tscn" id="3_item"]
-[ext_resource type="Resource" path="res://resources/items/potion.tres" id="4_potion"]
-[ext_resource type="Resource" path="res://resources/items/stone.tres" id="5_stone"]
+[ext_resource type="PackedScene" uid="uid://7xkh621str50" path="res://Scenes/props/cupboard.tscn" id="3_cupboard"]
+[ext_resource type="PackedScene" uid="uid://bfsp5y3d0snar" path="res://Scenes/items/boule_rose.tscn" id="4_kt01x"]
+[ext_resource type="PackedScene" path="res://Scenes/items/potion.tscn" id="4_potion"]
+[ext_resource type="PackedScene" path="res://Scenes/items/stone.tscn" id="5_stone"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gy3sr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -67,18 +68,27 @@ text = "Adresse IP : "
 
 [node name="Players" type="Node3D" parent="." unique_id=24771023]
 
-[node name="Items" type="Node3D" parent="."]
+[node name="Items" type="Node3D" parent="." unique_id=723445010]
 
-[node name="Potion" parent="Items" instance=ExtResource("3_item")]
-position = Vector3(-1.5, 0.5, -2)
-data = ExtResource("4_potion")
+[node name="Potion" parent="Items" unique_id=1195892940 instance=ExtResource("4_potion")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -2)
+remaining_doses = 3
 
-[node name="Stone" parent="Items" instance=ExtResource("3_item")]
-position = Vector3(1.5, 0.5, -2)
-data = ExtResource("5_stone")
+[node name="Stone" parent="Items" unique_id=794233030 instance=ExtResource("5_stone")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, -2)
+
+[node name="StoredPotion" parent="Items" unique_id=1042648102 instance=ExtResource("4_potion")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.2, -4)
+remaining_doses = 3
+
+[node name="WorldItem" parent="Items" unique_id=912162826 instance=ExtResource("4_kt01x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47319537, -1.2924409)
+
+[node name="Cupboard" parent="." unique_id=2029343668 instance=ExtResource("3_cupboard")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=513075492]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6392943, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.4090896, 0.6392943, 3.3529863)
 script = ExtResource("2_au00k")
 
 [connection signal="pressed" from="Menu/Heberger" to="." method="_on_heberger_pressed"]

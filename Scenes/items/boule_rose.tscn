@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bfsp5y3d0snar"]
+
+[ext_resource type="PackedScene" path="res://Scenes/items/world_item.tscn" id="1_a6fx0"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iwv7r"]
+radius = 0.1573961
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kt01x"]
+albedo_color = Color(1, 0.3372549, 1, 1)
+
+[sub_resource type="StandardMaterial3D" id="Material_stone"]
+albedo_color = Color(0.42, 0.4, 0.36, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_cl0pu"]
+material = SubResource("Material_stone")
+radius = 0.14
+height = 0.28
+radial_segments = 8
+rings = 4
+
+[node name="WorldItem" unique_id=912162826 instance=ExtResource("1_a6fx0")]
+display_name = "Boule Rose"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("SphereShape3D_iwv7r")
+
+[node name="StoneMesh" type="MeshInstance3D" parent="Visual" index="0" unique_id=281815197]
+material_override = SubResource("StandardMaterial3D_kt01x")
+mesh = SubResource("SphereMesh_cl0pu")

@@ -1,0 +1,27 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://Scenes/items/world_item.tscn" id="1_base"]
+
+[sub_resource type="SphereShape3D" id="Shape_stone"]
+radius = 0.14
+
+[sub_resource type="StandardMaterial3D" id="Material_stone"]
+albedo_color = Color(0.42, 0.4, 0.36, 1)
+roughness = 1.0
+
+[sub_resource type="SphereMesh" id="Mesh_stone"]
+material = SubResource("Material_stone")
+radius = 0.14
+height = 0.28
+radial_segments = 8
+rings = 4
+
+[node name="Stone" instance=ExtResource("1_base")]
+mass = 1.2
+display_name = "Pierre"
+
+[node name="CollisionShape3D" parent="." index="0"]
+shape = SubResource("Shape_stone")
+
+[node name="StoneMesh" type="MeshInstance3D" parent="Visual" index="0"]
+mesh = SubResource("Mesh_stone")

@@ -30,16 +30,16 @@ func _physics_process(_delta: float) -> void:
 		return
 	var held := get_held_item()
 	if held != null:
-		prompt.text = "G : lâcher — " + held.data.display_name
+		prompt.text = "G : lâcher — " + held.display_name
 		if Input.is_action_just_pressed("drop_item"):
 			held.request_drop()
 		return
 
 	ray.force_raycast_update()
 	var target := ray.get_collider() as Item
-	if target == null or target.holder_peer_id != 0 or target.data == null:
+	if target == null or target.holder_peer_id != 0 or target.collision.shape == null:
 		prompt.text = ""
 		return
-	prompt.text = "E : prendre — " + target.data.display_name
+	prompt.text = "E : prendre — " + target.display_name
 	if Input.is_action_just_pressed("interact"):
 		target.request_pick_up()

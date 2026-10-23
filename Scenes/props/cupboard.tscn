@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://7xkh621str50"]
+
+[sub_resource type="StandardMaterial3D" id="Wood"]
+albedo_color = Color(0.32, 0.19, 0.1, 1)
+roughness = 0.9
+
+[node name="Cupboard" type="Node3D" unique_id=813117991]
+
+[node name="Back" type="CSGBox3D" parent="." unique_id=1743186290]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -0.4)
+use_collision = true
+size = Vector3(2, 2.2, 0.1)
+material = SubResource("Wood")
+
+[node name="Left" type="CSGBox3D" parent="." unique_id=1965383685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.95, 1.1, 0)
+use_collision = true
+size = Vector3(0.1, 2.2, 0.9)
+material = SubResource("Wood")
+
+[node name="Right" type="CSGBox3D" parent="." unique_id=56752231]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.95, 1.1, 0)
+use_collision = true
+size = Vector3(0.1, 2.2, 0.9)
+material = SubResource("Wood")
+
+[node name="Bottom" type="CSGBox3D" parent="." unique_id=1446725351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+use_collision = true
+size = Vector3(1.8, 0.1, 0.9)
+material = SubResource("Wood")
+
+[node name="Shelf" type="CSGBox3D" parent="." unique_id=775208551]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+use_collision = true
+size = Vector3(1.8, 0.1, 0.9)
+material = SubResource("Wood")
+
+[node name="Shelf" type="CSGBox3D" parent="Shelf" unique_id=92588621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46155488, 0)
+use_collision = true
+size = Vector3(1.8, 0.1, 0.9)
+material = SubResource("Wood")
+
+[node name="Top" type="CSGBox3D" parent="." unique_id=1158646354]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
+use_collision = true
+size = Vector3(1.8, 0.1, 0.9)
+material = SubResource("Wood")

@@ -1,15 +1,12 @@
 class_name WorldItem
 extends RigidBody3D
 
-const ItemDefinition = preload("res://scripts/items/item_data.gd")
 const ITEM_LAYER := 2
 const WORLD_AND_ITEMS_MASK := 3
 
-@export var data: ItemDefinition:
-	set(value):
-		data = value
-		if is_node_ready():
-			_apply_data()
+@export var display_name: String = "Objet"
+@export var held_position: Vector3 = Vector3.ZERO
+@export var held_rotation_degrees: Vector3 = Vector3.ZERO
 
 # Seul le serveur écrit cette valeur ; les clients la reçoivent par réplication.
 var holder_peer_id: int = 0:
@@ -23,7 +20,6 @@ var holder_peer_id: int = 0:
 
 
 func _ready() -> void:
-	_apply_data()
 	_update_physics_state()
 
 
@@ -50,17 +46,8 @@ func _process(_delta: float) -> void:
 			_follow_hand(holder)
 
 
-func _apply_data() -> void:
-	for child in visual.get_children():
-		visual.remove_child(child)
-		child.queue_free()
-	if data == null:
-		collision.shape = null
-		return
-	mass = data.mass
-	collision.shape = data.collision_shape
-	if data.model != null:
-		visual.add_child(data.model.instantiate())
+func get_held_transform() -> Transform3D:
+	return Transform3D(Basis.from_euler(held_rotation_degrees * (PI / 180.0)), held_position)
 
 
 func _update_physics_state() -> void:
@@ -81,7 +68,7 @@ func _find_player(peer_id: int) -> CharacterBody3D:
 
 func _follow_hand(player: CharacterBody3D) -> void:
 	var anchor := player.get_node("PivotCamera/Camera3D/HandAnchor") as Node3D
-	global_transform = anchor.global_transform * data.get_held_transform()
+	global_transform = anchor.global_transform * get_held_transform()
 
 
 func request_pick_up() -> void:
@@ -98,7 +85,7 @@ func _request_pick_up() -> void:
 
 
 func _try_pick_up(peer_id: int) -> bool:
-	if not multiplayer.is_server() or holder_peer_id != 0 or data == null:
+	if not multiplayer.is_server() or holder_peer_id != 0 or collision.shape == null:
 		return false
 	var player := _find_player(peer_id)
 	if player == null:
