@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://v8k8ijyd714l" path="res://scripts/za_warudo.gd" id="1_au00k"]
 [ext_resource type="Script" uid="uid://chksbh1u70spt" path="res://scripts/boxquitourne.gd" id="2_au00k"]
+[ext_resource type="PackedScene" path="res://Scenes/items/world_item.tscn" id="3_item"]
+[ext_resource type="Resource" path="res://resources/items/potion.tres" id="4_potion"]
+[ext_resource type="Resource" path="res://resources/items/stone.tres" id="5_stone"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gy3sr"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -63,6 +66,16 @@ offset_bottom = 369.0
 text = "Adresse IP : "
 
 [node name="Players" type="Node3D" parent="." unique_id=24771023]
+
+[node name="Items" type="Node3D" parent="."]
+
+[node name="Potion" parent="Items" instance=ExtResource("3_item")]
+position = Vector3(-1.5, 0.5, -2)
+data = ExtResource("4_potion")
+
+[node name="Stone" parent="Items" instance=ExtResource("3_item")]
+position = Vector3(1.5, 0.5, -2)
+data = ExtResource("5_stone")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=513075492]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6392943, 0)
