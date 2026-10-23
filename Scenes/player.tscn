@@ -23,6 +23,9 @@ properties/3/replication_mode = 1
 properties/4/path = NodePath(".:look_pitch")
 properties/4/spawn = true
 properties/4/replication_mode = 1
+properties/5/path = NodePath(".:is_grounded")
+properties/5/spawn = true
+properties/5/replication_mode = 1
 
 [node name="player" type="CharacterBody3D" unique_id=845922450 groups=["players"]]
 script = ExtResource("1_cvnsp")

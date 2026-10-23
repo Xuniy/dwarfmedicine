@@ -17,7 +17,9 @@ const JUMP_VELOCITY = 4.5
 @onready var camera_pivot: Node3D = $PivotCamera
 @onready var collision_shape: CollisionShape3D = $CollisionShape3D
 
+
 # Cette propriété est aussi reçue par le MultiplayerSynchronizer.
+@export var is_grounded: bool = true
 var is_crouching: bool = false:
 	set(value):
 		if is_crouching == value:
@@ -111,6 +113,7 @@ func _physics_process(delta: float) -> void:
 		velocity.z = move_toward(velocity.z, 0, movement_speed)
 		
 	move_and_slide()
+	is_grounded = is_on_floor()
 
 func _process(delta: float) -> void:
 	var target_camera_height := crouch_camera_height if is_crouching else _standing_camera_height
@@ -121,13 +124,18 @@ func _process(delta: float) -> void:
 	)
 
 	var speed := Vector2(velocity.x, velocity.z).length()
+	var current_state := animation_state.get_current_node()
 	var target_state: String
-	if is_crouching:
+
+	if not is_grounded:
+		target_state = "Jump Start"
+	elif current_state == "Jump Start":
+		target_state = "Jump Land"
+	elif is_crouching:
 		target_state = "Crouch_Forward" if speed > 0.1 else "Crouch_Idle"
 	else:
 		target_state = "Run" if speed > 0.1 else "Idle"
-
-	if animation_state.get_current_node() != target_state:
+	if current_state != target_state:
 		animation_state.travel(target_state)
 
 
