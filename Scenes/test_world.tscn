@@ -72,16 +72,14 @@ text = "Adresse IP : "
 
 [node name="Potion" parent="Items" unique_id=1195892940 instance=ExtResource("4_potion")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.5, -2)
-remaining_doses = 3
 
 [node name="Stone" parent="Items" unique_id=794233030 instance=ExtResource("5_stone")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.5, -2)
 
 [node name="StoredPotion" parent="Items" unique_id=1042648102 instance=ExtResource("4_potion")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4, 1.2, -4)
-remaining_doses = 3
 
-[node name="WorldItem" parent="Items" unique_id=912162826 instance=ExtResource("4_kt01x")]
+[node name="boulerose" parent="Items" unique_id=912162826 instance=ExtResource("4_kt01x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.47319537, -1.2924409)
 
 [node name="Cupboard" parent="." unique_id=2029343668 instance=ExtResource("3_cupboard")]

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://7ahgsle33gmb"]
+
+[ext_resource type="Script" uid="uid://2oiv1qfhh37u" path="res://scripts/item_placer.gd" id="2_yb4ee"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_u0ya7"]
+radius = 0.26972365
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dtglo"]
+albedo_color = Color(0.7186206, 0.032972403, 0.47245556, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_u0ya7"]
+size = Vector2(0.5, 0.5)
+
+[node name="Area3D" type="Area3D" unique_id=657801926]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("2_yb4ee")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1485364237]
+shape = SubResource("SphereShape3D_u0ya7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1582792827]
+material_override = SubResource("StandardMaterial3D_dtglo")
+mesh = SubResource("PlaneMesh_u0ya7")
+
+[node name="DepositPoint" type="Marker3D" parent="." unique_id=510885396]
+position = Vector3(0, 0.3, 0)

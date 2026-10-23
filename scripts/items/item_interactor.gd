@@ -29,13 +29,19 @@ func _physics_process(_delta: float) -> void:
 		prompt.text = ""
 		return
 	var held := get_held_item()
+	# Les zones ne doivent pas cacher les objets quand la main est libre.
+	ray.set_collision_mask_value(3, held != null)
+	ray.force_raycast_update()
 	if held != null:
-		prompt.text = "G : lâcher — " + held.display_name
+		var zone := ray.get_collider() as ItemDepositZone
+		prompt.text = ("G : déposer — " if zone != null else "G : lâcher — ") + held.display_name
 		if Input.is_action_just_pressed("drop_item"):
-			held.request_drop()
+			if zone != null:
+				zone.request_deposit()
+			else:
+				held.request_drop()
 		return
 
-	ray.force_raycast_update()
 	var target := ray.get_collider() as Item
 	if target == null or target.holder_peer_id != 0 or target.collision.shape == null:
 		prompt.text = ""

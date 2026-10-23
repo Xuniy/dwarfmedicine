@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://7xkh621str50"]
 
+[ext_resource type="PackedScene" uid="uid://7ahgsle33gmb" path="res://Scenes/props/item_placer.tscn" id="1_2e81b"]
+
 [sub_resource type="StandardMaterial3D" id="Wood"]
 albedo_color = Color(0.32, 0.19, 0.1, 1)
 roughness = 0.9
@@ -36,14 +38,26 @@ use_collision = true
 size = Vector3(1.8, 0.1, 0.9)
 material = SubResource("Wood")
 
-[node name="Shelf" type="CSGBox3D" parent="Shelf" unique_id=92588621]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46155488, 0)
-use_collision = true
-size = Vector3(1.8, 0.1, 0.9)
-material = SubResource("Wood")
-
 [node name="Top" type="CSGBox3D" parent="." unique_id=1158646354]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.15, 0)
 use_collision = true
 size = Vector3(1.8, 0.1, 0.9)
 material = SubResource("Wood")
+
+[node name="Shelf2" type="CSGBox3D" parent="." unique_id=92588621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3615549, 0)
+use_collision = true
+size = Vector3(1.8, 0.1, 0.9)
+material = SubResource("Wood")
+
+[node name="Item_Placer" parent="." unique_id=657801926 instance=ExtResource("1_2e81b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5968156, 0.15720558, 0)
+
+[node name="Item_Placer2" parent="." unique_id=468112701 instance=ExtResource("1_2e81b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09941667, 0.15720558, 0)
+
+[node name="Item_Placer3" parent="." unique_id=841384964 instance=ExtResource("1_2e81b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5968156, 0.9618707, 0)
+
+[node name="Item_Placer" parent="Item_Placer3" unique_id=1609153845 instance=ExtResource("1_2e81b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6569391, -0.0028438568, 0)
