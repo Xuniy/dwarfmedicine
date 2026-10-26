@@ -5,9 +5,36 @@
 [ext_resource type="AnimationLibrary" uid="uid://kqt3nr0n3ijl" path="res://Assets/Dwarf Character Dummy/Animations/DwarfM@Run01_Forward.fbx" id="3_flxl2"]
 [ext_resource type="AnimationLibrary" uid="uid://cfp05mh5jvw5m" path="res://Assets/Animations/UAL1_Standard.glb" id="4_kj7yh"]
 [ext_resource type="AnimationLibrary" uid="uid://cj447scor7cxx" path="res://Assets/Animations/UAL2_Standard.glb" id="5_fuyny"]
+[ext_resource type="AnimationLibrary" path="res://Assets/Animations/dwarf_directional.tres" id="6_directional"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_crouch_forward"]
 animation = &"UAL1_Standard/Crouch_Fwd"
+
+[sub_resource type="AnimationNodeAnimation" id="Animation_crouch_backward"]
+animation = &"Directional/Crouch_Backward"
+
+[sub_resource type="AnimationNodeAnimation" id="Animation_crouch_left"]
+animation = &"Directional/Crouch_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="Animation_crouch_right"]
+animation = &"Directional/Crouch_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="BlendSpace_crouch"]
+x_label = "Gauche / Droite"
+y_label = "Avant (-1) / Arriere (+1)"
+sync_mode = 2
+blend_point_0/node = SubResource("AnimationNodeAnimation_crouch_forward")
+blend_point_0/pos = Vector2(0, -1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("Animation_crouch_backward")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("Animation_crouch_left")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("Animation_crouch_right")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_crouch_idle"]
 animation = &"UAL1_Standard/Crouch_Idle"
@@ -23,6 +50,32 @@ animation = &"UAL1_Standard/Jump_Start"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_flxl2"]
 animation = &"UAL1_Standard/Sprint"
+
+[sub_resource type="AnimationNodeAnimation" id="Animation_run_backward"]
+animation = &"Directional/Run_Backward"
+
+[sub_resource type="AnimationNodeAnimation" id="Animation_run_left"]
+animation = &"Directional/Run_Left"
+
+[sub_resource type="AnimationNodeAnimation" id="Animation_run_right"]
+animation = &"Directional/Run_Right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="BlendSpace_run"]
+x_label = "Gauche / Droite"
+y_label = "Avant (-1) / Arriere (+1)"
+sync_mode = 2
+blend_point_0/node = SubResource("AnimationNodeAnimation_flxl2")
+blend_point_0/pos = Vector2(0, -1)
+blend_point_0/name = &"0"
+blend_point_1/node = SubResource("Animation_run_backward")
+blend_point_1/pos = Vector2(0, 1)
+blend_point_1/name = &"1"
+blend_point_2/node = SubResource("Animation_run_left")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_2/name = &"2"
+blend_point_3/node = SubResource("Animation_run_right")
+blend_point_3/pos = Vector2(1, 0)
+blend_point_3/name = &"3"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ebyq1"]
 xfade_time = 0.15
@@ -76,7 +129,7 @@ xfade_time = 0.1
 xfade_time = 0.1
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_8iwi6"]
-states/Crouch_Forward/node = SubResource("AnimationNodeAnimation_crouch_forward")
+states/Crouch_Forward/node = SubResource("BlendSpace_crouch")
 states/Crouch_Forward/position = Vector2(698, 42)
 states/Crouch_Idle/node = SubResource("AnimationNodeAnimation_crouch_idle")
 states/Crouch_Idle/position = Vector2(427, 42)
@@ -86,10 +139,10 @@ states/Idle/position = Vector2(427, 142)
 "states/Jump Land/position" = Vector2(698, 246.88702)
 "states/Jump Start/node" = SubResource("AnimationNodeAnimation_fuyny")
 "states/Jump Start/position" = Vector2(445, 246.88702)
-states/Run/node = SubResource("AnimationNodeAnimation_flxl2")
+states/Run/node = SubResource("BlendSpace_run")
 states/Run/position = Vector2(698, 142)
 transitions = ["Idle", "Run", SubResource("AnimationNodeStateMachineTransition_ebyq1"), "Run", "Idle", SubResource("AnimationNodeStateMachineTransition_8iwi6"), "Idle", "Crouch_Idle", SubResource("AnimationNodeStateMachineTransition_idle_crouch_idle"), "Crouch_Idle", "Idle", SubResource("AnimationNodeStateMachineTransition_crouch_idle_idle"), "Run", "Crouch_Forward", SubResource("AnimationNodeStateMachineTransition_run_crouch_forward"), "Crouch_Forward", "Run", SubResource("AnimationNodeStateMachineTransition_crouch_forward_run"), "Crouch_Idle", "Crouch_Forward", SubResource("AnimationNodeStateMachineTransition_crouch_idle_forward"), "Crouch_Forward", "Crouch_Idle", SubResource("AnimationNodeStateMachineTransition_crouch_forward_idle"), "Idle", "Crouch_Forward", SubResource("AnimationNodeStateMachineTransition_idle_crouch_forward"), "Crouch_Forward", "Idle", SubResource("AnimationNodeStateMachineTransition_crouch_forward_standing_idle"), "Run", "Crouch_Idle", SubResource("AnimationNodeStateMachineTransition_run_crouch_idle"), "Crouch_Idle", "Run", SubResource("AnimationNodeStateMachineTransition_crouch_idle_run"), "Idle", "Jump Start", SubResource("AnimationNodeStateMachineTransition_kj7yh"), "Run", "Jump Start", SubResource("AnimationNodeStateMachineTransition_fuyny"), "Jump Start", "Jump Land", SubResource("AnimationNodeStateMachineTransition_qprjw"), "Jump Land", "Idle", SubResource("AnimationNodeStateMachineTransition_dea6h"), "Jump Land", "Jump Start", SubResource("AnimationNodeStateMachineTransition_byj13")]
-graph_offset = Vector2(0, -44.253902)
+graph_offset = Vector2(0, -112.08655)
 
 [node name="DwarfM_Dummy" unique_id=215507243 instance=ExtResource("1_w83rj")]
 
@@ -112,6 +165,7 @@ visible = false
 visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1" unique_id=548723108]
+libraries/Directional = ExtResource("6_directional")
 libraries/DwarfM@Idle01 = ExtResource("2_yijjv")
 libraries/DwarfM@Run01_Forward = ExtResource("3_flxl2")
 libraries/UAL1_Standard = ExtResource("4_kj7yh")
@@ -120,3 +174,5 @@ libraries/UAL2_Standard = ExtResource("5_fuyny")
 [node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=43819933]
 tree_root = SubResource("AnimationNodeStateMachine_8iwi6")
 anim_player = NodePath("../AnimationPlayer")
+parameters/Crouch_Forward/blend_position = Vector2(0, -1)
+parameters/Run/blend_position = Vector2(0, -1)

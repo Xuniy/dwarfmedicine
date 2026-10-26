@@ -33,6 +33,7 @@ var _standing_capsule: CapsuleShape3D
 var _standing_collision_position: Vector3
 var _standing_camera_height: float
 var _crouching_height: float
+var _animation_direction := Vector2(0, -1)
 
 var look_pitch: float = 0.0:
 	set(value):
@@ -123,7 +124,16 @@ func _process(delta: float) -> void:
 		1.0 - exp(-camera_height_transition_speed * delta)
 	)
 
-	var speed := Vector2(velocity.x, velocity.z).length()
+	# Utiliser la vitesse reçue en réseau, dans le repère du joueur :
+	# X = gauche/droite, Z = avant (-) / arrière (+).
+	var local_velocity := global_basis.orthonormalized().inverse() * velocity
+	var movement := Vector2(local_velocity.x, local_velocity.z)
+	var speed := movement.length()
+	if speed > 0.1:
+		var direction := movement / (absf(movement.x) + absf(movement.y))
+		_animation_direction = _animation_direction.lerp(direction, 1.0 - exp(-12.0 * delta))
+		animation_tree.set("parameters/Run/blend_position", _animation_direction)
+		animation_tree.set("parameters/Crouch_Forward/blend_position", _animation_direction)
 	var current_state := animation_state.get_current_node()
 	var target_state: String
 
